@@ -1,4 +1,4 @@
-Guide to installing a LAMP stack on Google cloud:
+#Guide to installing a LAMP stack on Google cloud:
 
 Go to https://console.cloud.google.com/compute and create a new instance.
 
@@ -6,7 +6,8 @@ sudo apt update -y && sudo apt upgrade -y
 sudo apt install apache2 mysql-server mysql-client php libapache2-mod-php php-mysql php-cli git -y
 
 ###change password for mysql root
-sudo mysql_secure_installation -y
+
+>sudo mysql_secure_installation -y
 sudo mysql
 SELECT user,authentication_string,plugin,host FROM mysql.user;
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
