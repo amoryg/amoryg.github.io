@@ -1,4 +1,6 @@
-#LAMP Stack Install
+Guide to installing a LAMP stack on Google cloud:
+
+Go to https://console.cloud.google.com/compute and create a new instance.
 
 sudo apt update -y && sudo apt upgrade -y
 sudo apt install apache2 mysql-server mysql-client php libapache2-mod-php php-mysql php-cli git -y
