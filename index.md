@@ -8,12 +8,12 @@ sudo apt install apache2 mysql-server mysql-client php libapache2-mod-php php-my
 ###change password for mysql root
 
 >sudo mysql_secure_installation -y
-sudo mysql
-SELECT user,authentication_string,plugin,host FROM mysql.user;
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
-FLUSH PRIVILEGES;
-SELECT user,authentication_string,plugin,host FROM mysql.user;
-exit
+>sudo mysql
+>SELECT user,authentication_string,plugin,host FROM mysql.user;
+>ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+>FLUSH PRIVILEGES;
+>SELECT user,authentication_string,plugin,host FROM mysql.user;
+>exit
 
 ##change dir.conf to this:
 sudo nano /etc/apache2/mods-enabled/dir.conf
