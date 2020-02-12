@@ -2,52 +2,46 @@
 
 Go to https://console.cloud.google.com/compute and create a new instance.
 
-Configure your VM with desired settings.
+Configure your VM with desired CPU and memory settings (f1 micro is the cheapest and sufficient for our needs).
+
+Make sure you change the Operating System to Ubuntu 18.04.
 
 Once your VM has loaded, open the web SSH terminal.
 
-## Now we're going to install Apache, MySQL, and PHP.
+## Install Apache, MySQL, PHP, and Git.
 
 Once the web SSH terminal has loaded run:
 
     sudo apt update -y && sudo apt upgrade -y && sudo apt install apache2 mysql-server mysql-client php libapache2-mod-php php-mysql php-cli git -y
 
-## Now we're going to do some basic configuration.
+## Basic configuration.
 
 ### Apache.
-
-We want Apache to default to loading .php before .html files.
-
-    sudo nano /etc/apache2/mods-enabled/dir.conf
-
-Replace the contents of dir.conf with:
-
-    <IfModule mod_dir.c>
-        DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm
-    </IfModule>
-
-Restart apache for changes to take effect. 
-
-    sudo systemctl restart apache2
 
 If you have UFW enabled, you'll need to allow Apache traffic through the firewall.
 
     sudo ufw allow in "Apache Full"
+
+You can confirm Apache is working by going to your console.cloud.google.com/compute page and coppying the IP address of your VM, opening a new tab, and entering that IP address as the URL. You should see the Apache2 Ubuntu Default Page.
 
 
 ### MySQL
 
 To configure MySQL run the installation script that comes preinstalled with MySQL.
 
-Make sure you create a secure root password for MySQL and make sure you don't lose it.
-
     sudo mysql_secure_installation
+
+Follow instructions onscreen to create the root password.
+
+Create a secure root password for MySQL and make sure you don't lose it.
 
 Press Y for the rest of the questions to finish installing MySQL.
 
-You can use the password to login to MySQL as root by changing the authentication method from auth_socket to mysql_native_password.
+You can use the password to login to MySQL as root by changing the authentication method.
 
     sudo mysql
+    
+For a list of users enter
 
     SELECT user,authentication_string,plugin,host FROM mysql.user;
     
@@ -59,16 +53,29 @@ Refresh the table..
 
     FLUSH PRIVILEGES;
 
-You can now verify the root password has been changed:
+You can now verify the authentication method has been changed:
 
     SELECT user,authentication_string,plugin,host FROM mysql.user;
-    
-And we're done.
 
     exit
 
 ### PHP
 
+We want Apache to prefer loading index.php files before index.html files by default.
+
+    sudo nano /etc/apache2/mods-enabled/dir.conf
+
+Replace the contents of /etc/apache2/mods-enabled/dir.conf with:
+
+    <IfModule mod_dir.c>
+        DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm
+    </IfModule>
+
+To finish editing in nano, press ctrl+X, type Y to confirm overwriting, then press enter.
+
+Restart apache for changes to take effect. 
+
+    sudo systemctl restart apache2
 
 ### Git
 
