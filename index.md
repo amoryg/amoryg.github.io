@@ -10,7 +10,7 @@ Once your VM has loaded, open the web SSH terminal.
 
 Once the web SSH terminal has loaded run:
 
->sudo apt update -y && sudo apt upgrade -y && sudo apt install apache2 mysql-server mysql-client php libapache2-mod-php php-mysql php-cli git -y
+  $ sudo apt update -y && sudo apt upgrade -y && sudo apt install apache2 mysql-server mysql-client php libapache2-mod-php php-mysql php-cli git -y
 
 ## Now we're going to do some basic configuration.
 
