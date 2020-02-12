@@ -45,7 +45,7 @@ For a list of users enter
 
     SELECT user,authentication_string,plugin,host FROM mysql.user;
     
-Replace password in the next command with a secure root password for MySQL and make sure you don't lose it.
+Replace password in the next command with your MySQL root password.
 
     ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
     
@@ -61,7 +61,7 @@ You can now verify the authentication method has been changed:
 
 ### PHP
 
-We want Apache to prefer loading index.php files before index.html files by default.
+Set Apache to prefer loading index.php files before index.html files by default.
 
     sudo nano /etc/apache2/mods-enabled/dir.conf
 
@@ -79,6 +79,12 @@ Restart apache for changes to take effect.
 
 ### Git
 
+To configure git replace *Your Name* with your name.
+
     git config --global user.name "Your Name"
+    
+Replace *YOUR@EMAIL.HERE* with your email address.
 
     git config --global user.email "YOUR@EMAIL.HERE"
+    
+## You now have a Google Cloud VM running a LAMP stack with git and you're ready to start working.
