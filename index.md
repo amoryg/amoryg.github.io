@@ -31,10 +31,17 @@
 ###change dir.conf to this:
 
 sudo nano /etc/apache2/mods-enabled/dir.conf
+
 <IfModule mod_dir.c>
+    
     DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm
+    
 </IfModule>
+
 sudo systemctl restart apache2
 
-git config --global user.name "Amory Gengler"
-git config --global user.email "amorygengler@icloud.com"
+###Configure Git
+
+>git config --global user.name "Your Name"
+
+>git config --global user.email "YOUR@EMAIL.HERE"
