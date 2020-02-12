@@ -14,7 +14,27 @@ Once the web SSH terminal has loaded run:
 
 ## Now we're going to do some basic configuration.
 
-### Change the root password for MySQL.
+### Apache.
+
+We want Apache to default to loading .php before .html files.
+
+    sudo nano /etc/apache2/mods-enabled/dir.conf
+
+Replace the contents of dir.conf with:
+
+    <IfModule mod_dir.c>
+        DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm
+    </IfModule>
+
+
+### Restart apache for changes to take effect. 
+
+    sudo systemctl restart apache2
+    
+
+### MySQL
+
+Change the root password for MySQL.
 
     sudo mysql_secure_installation -y
 
@@ -29,22 +49,6 @@ Once the web SSH terminal has loaded run:
     SELECT user,authentication_string,plugin,host FROM mysql.user;
 
     exit
-
-### We want Apache to default to loading .php before .html files.
-
-    sudo nano /etc/apache2/mods-enabled/dir.conf
-
-replace the contents of dir.conf with:
-
-    \<IfModule mod_dir.c>
-        DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm
-    \</IfModule>
-
-
-### Restart apache for changes to take effect. 
-
-    sudo systemctl restart apache2
-
 
 ### Next we're going to configure Git
 
