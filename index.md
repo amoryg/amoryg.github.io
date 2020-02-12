@@ -1,4 +1,4 @@
-#Guide to installing a LAMP stack on Google cloud:#
+# Guide to installing a LAMP stack on Google cloud
 
 1: Go to https://console.cloud.google.com/compute and create a new instance.
 
@@ -10,7 +10,7 @@
 
 >sudo apt update -y && sudo apt upgrade -y && sudo apt install apache2 mysql-server mysql-client php libapache2-mod-php php-mysql php-cli git -y
 
-###Now that we've installed apache, MySQL, and PHP, we're going to do some basic configuration.
+### Now that we've installed apache, MySQL, and PHP, we're going to do some basic configuration.
 
 5: Change the root password for MySQL.
 
@@ -28,7 +28,9 @@
 
 >exit
 
-###change dir.conf to this:
+### We want to set the priority for apache to default to loading .php before .html files. by changing our change dir.conf
+
+
 
 sudo nano /etc/apache2/mods-enabled/dir.conf
 
