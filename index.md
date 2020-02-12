@@ -26,31 +26,51 @@ Replace the contents of dir.conf with:
         DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm
     </IfModule>
 
-
-### Restart apache for changes to take effect. 
+Restart apache for changes to take effect. 
 
     sudo systemctl restart apache2
-    
+
+If you have UFW enabled, you'll need to allow Apache traffic through the firewall.
+
+    sudo ufw allow in "Apache Full"
+
 
 ### MySQL
 
-Change the root password for MySQL.
+To configure MySQL run the installation script that comes preinstalled with MySQL.
 
-    sudo mysql_secure_installation -y
+Make sure you create a secure root password for MySQL and make sure you don't lose it.
+
+    sudo mysql_secure_installation
+
+Press Y for the rest of the questions to finish installing MySQL.
+
+You can use the password to login to MySQL as root by changing the authentication method from auth_socket to mysql_native_password.
 
     sudo mysql
 
     SELECT user,authentication_string,plugin,host FROM mysql.user;
+    
+Replace password in the next command with a secure root password for MySQL and make sure you don't lose it.
 
     ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+    
+Refresh the table..
 
     FLUSH PRIVILEGES;
 
+You can now verify the root password has been changed:
+
     SELECT user,authentication_string,plugin,host FROM mysql.user;
+    
+And we're done.
 
     exit
 
-### Next we're going to configure Git
+### PHP
+
+
+### Git
 
     git config --global user.name "Your Name"
 
