@@ -1,4 +1,4 @@
-#Guide to installing a LAMP stack on Google cloud:
+#Guide to installing a LAMP stack on Google cloud:#
 
 1: Go to https://console.cloud.google.com/compute and create a new instance.
 
