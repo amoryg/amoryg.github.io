@@ -2,6 +2,8 @@
 
 By Amory Gengler amorygengler@icloud.com
 
+
+
 Go to https://console.cloud.google.com/compute and create a new instance.
 
 Configure your VM with desired CPU and memory settings (f1 micro is the cheapest and sufficient for our needs).
@@ -10,11 +12,15 @@ Make sure you change the Operating System to Ubuntu 18.04.
 
 Once your VM has loaded, open the web SSH terminal.
 
+
+
 ## Install Apache, MySQL, PHP, and Git.
 
 Once the web SSH terminal has loaded run:
 
     sudo apt update -y && sudo apt upgrade -y && sudo apt install apache2 mysql-server mysql-client php libapache2-mod-php php-mysql php-cli git -y
+
+
 
 ## Basic configuration.
 
@@ -25,6 +31,7 @@ If you have UFW enabled, you'll need to allow Apache traffic through the firewal
     sudo ufw allow in "Apache Full"
 
 You can confirm Apache is working by going to your console.cloud.google.com/compute page and coppying the IP address of your VM, opening a new tab, and entering that IP address as the URL. You should see the Apache2 Ubuntu Default Page.
+
 
 
 ### MySQL
@@ -61,6 +68,8 @@ You can now verify the authentication method has been changed:
 
     exit
 
+
+
 ### PHP
 
 Set Apache to prefer loading index.php files before index.html files by default.
@@ -79,6 +88,8 @@ Restart apache for changes to take effect.
 
     sudo systemctl restart apache2
 
+
+
 ### Git
 
 To configure git replace *Your Name* with your name.
@@ -88,5 +99,7 @@ To configure git replace *Your Name* with your name.
 Replace *YOUR@EMAIL.HERE* with your email address.
 
     git config --global user.email "YOUR@EMAIL.HERE"
-    
+
+
+
 ## You now have a Google Cloud VM running a LAMP stack with git and you're ready to start working.
