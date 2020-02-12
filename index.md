@@ -16,40 +16,38 @@ Once the web SSH terminal has loaded run:
 
 ### Change the root password for MySQL.
 
->sudo mysql_secure_installation -y
+    sudo mysql_secure_installation -y
 
->sudo mysql
+    sudo mysql
 
->SELECT user,authentication_string,plugin,host FROM mysql.user;
+    SELECT user,authentication_string,plugin,host FROM mysql.user;
 
->ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+    ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
 
->FLUSH PRIVILEGES;
+    FLUSH PRIVILEGES;
 
->SELECT user,authentication_string,plugin,host FROM mysql.user;
+    SELECT user,authentication_string,plugin,host FROM mysql.user;
 
->exit
+    exit
 
 ### We want Apache to default to loading .php before .html files.
 
->sudo nano /etc/apache2/mods-enabled/dir.conf
+    sudo nano /etc/apache2/mods-enabled/dir.conf
 
 replace the contents of dir.conf with:
 
->\<IfModule mod_dir.c>
-
-> DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm
-
->\</IfModule>
+    \<IfModule mod_dir.c>
+        DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm
+    \</IfModule>
 
 
 ### Restart apache for changes to take effect. 
 
->sudo systemctl restart apache2
+    sudo systemctl restart apache2
 
 
 ### Next we're going to configure Git
 
->git config --global user.name "Your Name"
+    git config --global user.name "Your Name"
 
->git config --global user.email "YOUR@EMAIL.HERE"
+    git config --global user.email "YOUR@EMAIL.HERE"
