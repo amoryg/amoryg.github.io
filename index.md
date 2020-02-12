@@ -1,5 +1,7 @@
 # Guide to installing a LAMP stack on Google cloud
 
+By Amory Gengler amorygengler@icloud.com
+
 Go to https://console.cloud.google.com/compute and create a new instance.
 
 Configure your VM with desired CPU and memory settings (f1 micro is the cheapest and sufficient for our needs).
