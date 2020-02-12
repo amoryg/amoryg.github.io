@@ -1,18 +1,20 @@
 # Guide to installing a LAMP stack on Google cloud
 
-1: Go to https://console.cloud.google.com/compute and create a new instance.
+Go to https://console.cloud.google.com/compute and create a new instance.
 
-2: Configure your VM with desired settings.
+Configure your VM with desired settings.
 
-3: Once your VM has loaded, open the web SSH terminal.
+Once your VM has loaded, open the web SSH terminal.
 
-4: Once the web SSH terminal has loaded run
+## Now we're going to install Apache, MySQL, and PHP.
+
+Once the web SSH terminal has loaded run:
 
 >sudo apt update -y && sudo apt upgrade -y && sudo apt install apache2 mysql-server mysql-client php libapache2-mod-php php-mysql php-cli git -y
 
-### Now that we've installed apache, MySQL, and PHP, we're going to do some basic configuration.
+## Now we're going to do some basic configuration.
 
-5: Change the root password for MySQL.
+### Change the root password for MySQL.
 
 >sudo mysql_secure_installation -y
 
@@ -28,23 +30,23 @@
 
 >exit
 
-### We want to set the priority for apache to default to loading .php before .html files. by changing our change dir.conf
-
-
+### We want Apache to default to loading .php before .html files.
 
 >sudo nano /etc/apache2/mods-enabled/dir.conf
 
-replace the contents of dir.conf with this:
+replace the contents of dir.conf with:
 
-\<IfModule mod_dir.c>
-    
- DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm
-    
-\</IfModule>
+>\<IfModule mod_dir.c>
+
+> DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm
+
+>\</IfModule>
+
 
 ### Restart apache for changes to take effect. 
 
 >sudo systemctl restart apache2
+
 
 ### Next we're going to configure Git
 
