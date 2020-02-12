@@ -32,11 +32,11 @@
 
 sudo nano /etc/apache2/mods-enabled/dir.conf
 
-><IfModule mod_dir.c>
+>\<IfModule mod_dir.c>
     
 >    DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm
     
-></IfModule>
+>\</IfModule>
 
 sudo systemctl restart apache2
 
