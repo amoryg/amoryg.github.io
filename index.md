@@ -32,17 +32,21 @@
 
 
 
-sudo nano /etc/apache2/mods-enabled/dir.conf
+>sudo nano /etc/apache2/mods-enabled/dir.conf
 
->\<IfModule mod_dir.c>
+replace the contents of dir.conf with this:
+
+\<IfModule mod_dir.c>
     
->    DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm
+ DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm
     
->\</IfModule>
+\</IfModule>
 
-sudo systemctl restart apache2
+### Restart apache for changes to take effect. 
 
-###Configure Git
+>sudo systemctl restart apache2
+
+### Next we're going to configure Git
 
 >git config --global user.name "Your Name"
 
