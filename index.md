@@ -5,6 +5,7 @@
 By Amory Gengler amorygengler@icloud.com
 
 
+## Google Cloud
 
 Go to https://console.cloud.google.com/compute and create a new instance.
 
