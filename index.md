@@ -1,4 +1,4 @@
-# Guide to installing a LAMP stack on Google cloud
+# Guide: Gcloud LAMP stack
 
 By Amory Gengler amorygengler@icloud.com
 
