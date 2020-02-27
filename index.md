@@ -11,7 +11,7 @@ Go to https://console.cloud.google.com/compute and create a new instance.
 
 Configure your VM with desired CPU and memory settings (f1 micro is the cheapest and sufficient for our needs).
 
-Make sure you change the Operating System to Ubuntu 18.04, SSD will be slightly faster than persistent disk.
+Make sure you change the Operating System to Ubuntu 18.04, SSD will be slightly faster than Sdanard disk.
 
 Enable HTTP and HTTPS traffic and create the instance.
 
