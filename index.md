@@ -11,7 +11,9 @@ Go to https://console.cloud.google.com/compute and create a new instance.
 
 Configure your VM with desired CPU and memory settings (f1 micro is the cheapest and sufficient for our needs).
 
-Make sure you change the Operating System to Ubuntu 18.04.
+Make sure you change the Operating System to Ubuntu 18.04, SSD will be slightly faster than persistent disk.
+
+Enable HTTP and HTTPS traffic and create the instance.
 
 Once your VM has loaded, open the web SSH terminal.
 
@@ -29,9 +31,6 @@ Once the web SSH terminal has loaded run:
 
 ### Apache.
 
-If you have UFW enabled, you'll need to allow Apache traffic through the firewall.
-
-    sudo ufw allow in "Apache Full"
 
 You can confirm Apache is working by going to your console.cloud.google.com/compute page and coppying the IP address of your VM, opening a new tab, and entering that IP address as the URL. You should see the Apache2 Ubuntu Default Page.
 
